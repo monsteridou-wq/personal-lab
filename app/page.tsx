@@ -1,65 +1,57 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import FeaturedProjects from "@/components/FeaturedProjects";
+import Timeline from "@/components/Timeline";
+import Tag from "@/components/Tag";
 
-export default function Home() {
+const introTags = ["Engineer", "AI Explorer", "Data Analyst", "Knowledge Builder"];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      {/* Hero */}
+      <HeroSection />
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="border-t border-border" />
+      </div>
+
+      {/* Personal intro */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="max-w-2xl">
+          <p className="text-xs uppercase tracking-widest text-accent font-medium mb-4">
+            Who I am
           </p>
+          <p className="text-xl text-foreground leading-relaxed mb-6">
+            工程背景，数据驱动，正在用 AI 重建我看世界的方式。
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8">
+            我相信：工程师的系统思维 × AI 的放大能力，可以让一个人做到以前需要整个团队才能做的事。
+            这里记录我的探索过程——包括成功的，也包括失败的。
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {introTags.map((tag) => (
+              <Tag key={tag} label={tag} variant="default" />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="border-t border-border" />
+      </div>
+
+      {/* Featured projects */}
+      <FeaturedProjects />
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="border-t border-border" />
+      </div>
+
+      {/* Timeline */}
+      <Timeline />
     </div>
   );
 }
